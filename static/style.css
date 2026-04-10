@@ -1,0 +1,39 @@
+body {
+  background-color: #f4f4f4;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.icon img {
+  width: 200%;
+  height: 200%;
+  object-fit: cover;
+  object-position: 100% 50%;
+}
+
+h1 {
+  color: #333;
+}
+
+ul {
+  max-width: 500px;
+  margin: auto;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
+}

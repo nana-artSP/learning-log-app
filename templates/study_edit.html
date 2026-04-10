@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学習ログ編集</title>
+</head>
+<body>
+    <h2>学習ログ編集</h2>
+
+    <form action="/study_logs/update/{{ log.id }}" method="post">
+        <label>科目</label><br>
+        <input type="text" name="subject" value="{{ log.subject }}"><br><br>
+
+        <label>時間（分）</label><br>
+        <input type="number" name="minutes" value="{{ log.minutes }}"><br><br>
+
+        <label>日付</label><br>
+        <input type="date" name="date" value="{{ log.date }}"><br><br>
+
+        <button type="submit">更新する</button>
+    </form>
+
+    <br>
+    <a href="/study_logs">一覧に戻る</a>
+</body>
+</html>

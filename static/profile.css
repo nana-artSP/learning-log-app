@@ -1,0 +1,62 @@
+.header {
+  height: 130px;
+  background: #377feb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#clock {
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+}
+
+.dark {
+  background: #121212;
+  color: white;
+}
+
+body {
+  background: #f4f4ff;
+  font-family: sans-serif;
+  padding: 40px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.icon img {
+  width: 200%;
+  height: 200%;
+  object-fit: cover;
+  object-position: 100% 50%;
+}
+
+.info h1 {
+  margin: 0;
+}
+
+.info p {
+  margin: 5px 0 0 0;
+}
+
+.content {
+  margin-top: 20px;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+  <title>新規登録</title>
+</head>
+
+<body>
+
+<div class="login-box">
+ <h1>新規登録</h1>
+
+ <input type="text" id="email" placeholder="メールアドレス">
+ <input type="password" id="password" placeholder="パスワード">
+
+ <button onclick="signup()">登録</button>
+
+ <div id="error" style="color:red"></div>
+</div>
+
+<script>
+async function signup() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const response = await fetch("http://127.0.0.1:5000/signup", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ email, password })
+    });
+
+    const data = await response.json();
+
+    if (data.message === "ok") {
+        alert("登録完了！ログインしてください");
+        window.location.href = "/login";
+    }
+    if (data.message === "exists") {
+        document.getElementById("error").innerText = "このメールは既に登録されています";
+    }
+}
+</script>
+
+</body>
+</html>
