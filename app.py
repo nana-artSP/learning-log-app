@@ -9,6 +9,47 @@ app.secret_key = "secret_key_here"
 CORS(app)
 
 # -----------------
+#  トップページ
+# -----------------
+@app.get("/")
+def home():
+    return redirect("/login")
+
+# -----------------
+#  データベース初期化
+# -----------------
+def init_db():
+    conn = sqlite3.connect("users.db")
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT UNIQUE NOT NULL,
+            password BLOB NOT NULL
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+    conn = sqlite3.connect("study.db")
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS study_logs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            subject TEXT NOT NULL,
+            minutes INTEGER NOT NULL,
+            date TEXT NOT NULL,
+            start_time TEXT,
+            end_time TEXT,
+            created_at TEXT NOT NULL
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+init_db()
+
+# -----------------
 #  新規登録
 # -----------------
 @app.post("/signup")
