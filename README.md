@@ -27,7 +27,8 @@ https://learning-log-app-ae2i.onrender.com/login
 ---
 
 ## 補足
-※開発時はFastAPIを使用していましたが、現在はFlaskに統合しています。
+開発段階では Flask と FastAPI を分離し、画面表示と API の役割を分けて実装しました。  
+公開版ではデプロイしやすさを考慮し、Flask に統合しています。
 
 ---
 
