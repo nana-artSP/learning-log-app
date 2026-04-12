@@ -22,6 +22,12 @@ https://learning-log-app-ae2i.onrender.com/login
 - CSS
 - JavaScript
 - Bootstrap
+- FastAPI
+  
+---
+
+## 補足
+※開発時はFastAPIを使用していましたが、現在はFlaskに統合しています。
 
 ---
 
@@ -76,5 +82,11 @@ https://learning-log-app-ae2i.onrender.com/login
 
 ## ローカルでの起動方法
 
-```bash
+### 1. 必要ライブラリをインストール
+pip install -r requirements.txt
+
+### 2. アプリ起動
 python app.py
+
+### 3. ブラウザでアクセス
+http://127.0.0.1:5000/login
