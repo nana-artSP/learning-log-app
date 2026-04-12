@@ -21,8 +21,8 @@
 
 <script>
 async function signup() {
-    const email = document.getElementById("signupId").value;
-    const password = document.getElementById("signupPw").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
     const res = await fetch("/signup", {
         method: "POST",
@@ -40,7 +40,7 @@ async function signup() {
     if (data.message === "ok") {
         location.href = "/login";
     } else if (data.message === "exists") {
-        document.getElementById("signupError").innerText = "このメールアドレスは既に登録されています";
+        document.getElementById("error").innerText = "このメールアドレスは既に登録されています";
     }
 }
 </script>
