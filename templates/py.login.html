@@ -24,26 +24,25 @@ async function login() {
     const email = document.getElementById("loginId").value;
     const password = document.getElementById("loginPw").value;
 
-    const response = await fetch("http://127.0.0.1:5000/login", {
+    const res = await fetch("/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
     });
 
-    const data = await response.json();
-    const errorBox = document.getElementById("loginError");
+    const data = await res.json();
 
-    // ログイン成功
     if (data.message === "ok") {
-        window.location.href = "/profile";
-        return;
-    }
-
-    // 失敗時のメッセージ
-    if (data.message === "no_user") {
-        errorBox.textContent = "残念違うよ♡";
+        location.href = "/profile";
+    } else if (data.message === "no_user") {
+        document.getElementById("loginError").innerText = "ユーザーが存在しません";
     } else if (data.message === "wrong_pw") {
-        errorBox.textContent = "残念違うよ♡";
+        document.getElementById("loginError").innerText = "パスワードが違います";
     }
 }
 </script>
